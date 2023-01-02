@@ -36,24 +36,55 @@ public class Generator {
         }
         return dizi;
     }
-    public static int[][] scan(int[][] dizi){
-        int a,b;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Satır :");
-        a=scanner.nextInt();
-        System.out.println("Sutun :");
-        b=scanner.nextInt();
+    public static void scan(int[][] dizi){
+        writeMatris(dizi);
+        while(true){
+            int a,b;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.print("Satır :");
+            a=scanner.nextInt();
+            System.out.print("Sutun : ");
+            b=scanner.nextInt();
 
-        for(int i=0; i<8;i++){
-            dizi[i][b-1] = 0;
-        }
-        for(int i=0; i<8;i++){
-            dizi[a-1][i] = 0;
-        }
-        dizi[a-1][b-1] = 9;
-        return dizi;
 
-    }
+            if(dizi[a-1][b-1] != 0){
+
+                for(int i=0; i<8;i++){
+                    dizi[i][b-1] = 0;
+                }
+                for(int i=0; i<8;i++){
+                    dizi[a-1][i] = 0;
+                }
+                for(int i=0; i<8;i++){
+                    dizi[a-1][i] = 0;
+                }
+                for (int i = a-1,j = b-1; i >= 0 && j >= 0; i--, j--){
+                    dizi[i][j] = 0;
+                }
+                for (int i = a-1, j = b-1; i >= 0 && j < dizi[0].length; i++, j++){
+                    dizi[i][j] = 0;
+                }
+                for (int i= a-1, j = b-1; i < dizi.length && j >= 0;i++,j--){
+                    dizi[i][j] = 0;
+                }
+                for (int i= a-1, j = b-1; i >= 0 && j < dizi[0].length;i--,j++){
+                    dizi[i][j] = 0;
+                }
+
+
+                dizi[a-1][b-1] = 9;
+               writeMatris(dizi);
+
+            }
+           else if(dizi[a-1][b-1] ==0){
+                System.out.println("Vezir doğru yere yerleşmedi.");
+                System.out.println("Oyun Sonu Tablo :");
+                writeMatris(dizi);
+                break;
+            }
+    }}
 
 
 
