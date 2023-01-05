@@ -1,14 +1,19 @@
 package com.uniyaz.collection;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Rehber {
+public class Rehber implements Serializable {
 
 
     private String name;
     private String phone;
     private int id;
 
+    public Rehber(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
+    }
 
     public int getId() {
         return id;

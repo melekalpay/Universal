@@ -14,7 +14,7 @@ public class Example {
         linkedList.add(111);
         System.out.println(linkedList); /* Output: [1, 111]*/
 
-        /*Block 2: Insert at last in Arraylist*/   // Adding and removing is faster at LinkedList ,Eleman seçerken arraylist hızlı.
+        /*Block 2: Insert at last in Arraylist*/   // Adding and removing with index is faster at LinkedList ,Eleman seçerken arraylist hızlı.
         arrayList.add(1);
         arrayList.add(111);
         System.out.println(arrayList); /* Output: [1, 111]*/

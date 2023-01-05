@@ -1,10 +1,11 @@
 package com.uniyaz.collection;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class RehberTest {
+public class RehberTest implements Serializable {
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -22,20 +23,18 @@ public class RehberTest {
 
     }
     public static void ekle(List<Rehber> rehberList){
+        System.out.print("Kaç tane girmek istiyorsun :");
+        int count = scanner.nextInt();
 
-        Rehber rehber = new Rehber();
+        for(int i = 0 ; i<count;i++) {
 
-        System.out.println("İsim :");
-        String isim = scanner.next();
-        rehber.setName(isim);
-
-        System.out.println("Tel :");
-        String tel = scanner.next();
-        rehber.setPhone(tel);
-
-        rehberList.add(rehber);
-        System.out.println("Eklendi.");
-
+            System.out.print("Ad girin : ");
+            String name = scanner.next();
+            System.out.print("Gsm girin : ");
+            String phone= scanner.next();
+            Rehber rehber = new Rehber(name,phone);
+            rehberList.add(rehber);
+        }
     }
 
     public static void guncelle(List<Rehber> rehberList){
